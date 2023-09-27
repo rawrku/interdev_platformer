@@ -220,7 +220,8 @@ GameObject:
   - component: {fileID: 1457569810}
   - component: {fileID: 1457569809}
   - component: {fileID: 1457569808}
-  m_Layer: 0
+  - component: {fileID: 1457569813}
+  m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,6 +240,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebfc50b63ea39044a9ab87744dc18d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
+  castDist: 1
+  jumpPower: 10
+  gravityScale: 2
+  gravityFall: 2
 --- !u!212 &1457569809
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -325,7 +331,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457569807}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -353,6 +359,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1457569813
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457569807}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de4328528d01e734f8692dcf3e4c5a4b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1811097231
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +393,7 @@ GameObject:
   - component: {fileID: 1811097232}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
