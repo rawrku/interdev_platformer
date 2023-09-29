@@ -6,9 +6,11 @@ public class PlayerControl : MonoBehaviour
 {
 
     float horizontalMove;
-    public float speed = 2f;
+    public float speed = 7f;
 
     Rigidbody2D myBody;
+    Animator myAnim;
+    SpriteRenderer mySprite;
 
     // checking to see if weather or not we are allowed to jump
     bool grounded = false;
@@ -25,14 +27,12 @@ public class PlayerControl : MonoBehaviour
     // bool holding the varible to check if we should jump or not
     bool jump = false;
 
-    Animator myAnim;
-
     void Start()
     {
 
         myBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
-
+        mySprite = GetComponent<SpriteRenderer>();
 
     }
 
@@ -53,6 +53,17 @@ public class PlayerControl : MonoBehaviour
         } else
         {
             myAnim.SetBool("running", false);
+        }
+
+        if (horizontalMove > -1)
+        {
+            
+            mySprite.flipX = false;
+        }
+        if (horizontalMove < 0)
+        {
+            Debug.Log(horizontalMove);
+            mySprite.flipX = true;
         }
     }
 
