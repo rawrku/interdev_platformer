@@ -5,7 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-public void LoadGame()
+    private HeartContoller heartScript;
+    public GameObject Player;
+
+    public void Start()
+    {
+        heartScript = Player.GetComponent<HeartContoller>();
+    }
+
+    public void Update()
+    {
+        if (heartScript.health == 0)
+        {
+            //blah blah load end game scene
+        }
+    }
+    public void LoadGame()
     {
         SceneManager.LoadScene("Game");
     }

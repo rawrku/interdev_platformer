@@ -6,7 +6,7 @@ public class PlayerControl : MonoBehaviour
 {
 
     float horizontalMove;
-    public float speed = 7f;
+    public float speed = 30f;
 
     Rigidbody2D myBody;
     Animator myAnim;
@@ -62,7 +62,6 @@ public class PlayerControl : MonoBehaviour
         }
         if (horizontalMove < 0)
         {
-            Debug.Log(horizontalMove);
             mySprite.flipX = true;
         }
     }
