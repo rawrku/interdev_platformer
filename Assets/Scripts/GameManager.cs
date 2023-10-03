@@ -17,11 +17,11 @@ public class GameManager : MonoBehaviour
     {
         if (heartScript.health == 0)
         {
-            //blah blah load end game scene
+            SceneManager.LoadScene("Menu");
         }
     }
     public void LoadGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Menu");
     }
 }

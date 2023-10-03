@@ -18,11 +18,11 @@ public class PlayerControl : MonoBehaviour
 
     // varibles to jump lol
     // power of jump
-    public float jumpPower = 30f;
+    public float jumpPower = 12f;
     // scale of jump
-    public float gravityScale = 15f;
+    public float gravityScale = 2f;
     // scale of the fall
-    public float gravityFall = 20f;
+    public float gravityFall = 1.5f;
 
     // bool holding the varible to check if we should jump or not
     bool jump = false;
@@ -70,8 +70,23 @@ public class PlayerControl : MonoBehaviour
     {
         if (jump)
         {
+            gravityFall = 1.5f;
             myBody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             jump = false;
+        }
+
+        if (jump == false)
+        {
+            // adding zero Grav mode
+            if (Input.GetKey(KeyCode.Q))
+            {
+                gravityFall = 0.25f;
+
+            }
+            else if (Input.GetKeyUp(KeyCode.Q))
+            {
+                gravityFall = 1.5f;
+            }
         }
 
         if (myBody.velocity.y > 0)
@@ -85,7 +100,7 @@ public class PlayerControl : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, castDist);
         Debug.DrawRay(transform.position, Vector2.down * castDist, Color.red);
 
-        if (hit.collider != null && hit.transform.name == "Ground")
+        if (hit.collider != null && hit.transform.tag == "Ground")
         {
             myAnim.SetBool("jumping", false);
             grounded = true;
