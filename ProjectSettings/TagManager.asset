@@ -8,6 +8,7 @@ TagManager:
   - player
   - heart
   - flag next
+  - flag end
   layers:
   - Default
   - TransparentFX

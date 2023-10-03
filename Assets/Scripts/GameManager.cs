@@ -12,16 +12,18 @@ public class GameManager : MonoBehaviour
     {
         heartScript = Player.GetComponent<HeartContoller>();
     }
-
-    public void Update()
-    {
-        if (heartScript.health == 0)
-        {
-            SceneManager.LoadScene("Menu");
-        }
-    }
     public void LoadGame()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Game");
+    }
+
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene("Level 2");
+    }
+
+    public void LoadEnd()
+    {
+        SceneManager.LoadScene("end");
     }
 }
