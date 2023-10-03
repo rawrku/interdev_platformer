@@ -20,7 +20,7 @@ public class HeartContoller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameMan = GetComponent<GameManager>();
+        gameMan = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class HeartContoller : MonoBehaviour
 
         if (health == 0)
         {
-            gameMan.LoadEnd();
+            gameMan.LoadEnd(true);
         }
     }
 }

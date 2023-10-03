@@ -5,12 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private HeartContoller heartScript;
-    public GameObject Player;
+
+    public bool dead;
 
     public void Start()
     {
-        heartScript = Player.GetComponent<HeartContoller>();
+        // if there is already an extisitng object of this type in the scene
+        if (FindObjectsOfType<GameManager>().Length > 1)
+        {
+            // then destory this current one so there is not 2
+            Destroy(gameObject);
+        }
+        else
+        {
+            // otherwise if there is NOT, then carry it onto the next scene
+            DontDestroyOnLoad(gameObject);
+        }
     }
     public void LoadGame()
     {
@@ -22,8 +32,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level 2");
     }
 
-    public void LoadEnd()
+    public void LoadEnd(bool isDead)
     {
-        SceneManager.LoadScene("end");
+        SceneManager.LoadScene("End");
+        dead = isDead;
+        
     }
 }

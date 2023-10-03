@@ -9,7 +9,7 @@ public class LevelLoader : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        gameMan = GetComponent<GameManager>();
+        gameMan = FindObjectOfType<GameManager>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -20,7 +20,7 @@ public class LevelLoader : MonoBehaviour
 
         if (collision.gameObject.tag == "flag end")
         {
-            gameMan.LoadEnd();
+            gameMan.LoadEnd(false);
         }
     }
 }

@@ -6,7 +6,7 @@ public class PlayerControl : MonoBehaviour
 {
 
     float horizontalMove;
-    public float speed = 30f;
+    private float speed = 5f;
 
     Rigidbody2D myBody;
     Animator myAnim;
@@ -18,11 +18,11 @@ public class PlayerControl : MonoBehaviour
 
     // varibles to jump lol
     // power of jump
-    public float jumpPower = 12f;
+    private float jumpPower = 12f;
     // scale of jump
-    public float gravityScale = 2f;
+    private float gravityScale = 2f;
     // scale of the fall
-    public float gravityFall = 1.5f;
+    private float gravityFall = 1.5f;
 
     // bool holding the varible to check if we should jump or not
     bool jump = false;
